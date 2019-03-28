@@ -1,18 +1,18 @@
 <div class="container-fluid">
-	<header id="header">
-		<ul class="row bg-primary list-unstyled">
-			<span class="col-md-4 col-md-offset-1">Bookers</span>
-			<li class="col-md-1 col-md-offset-2"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+  <header id="header">
+    <ul class="row bg-primary list-unstyled">
+      <span class="col-md-4 col-md-offset-1">Bookers</span>
+      <li class="col-md-1 col-md-offset-2"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
 <%= link_to "Home", root_path %></li>
 
-			<li class="col-md-1"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+      <li class="col-md-1"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>
 <%= link_to "About", home_about_path %></li>
-			<li class="col-md-1"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-sign up</li>
-			<li class="col-md-1"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
-login</li>
-		</ul>
-	</header>
+      <li class="col-md-1"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+<%= link_to "sign up", new_user_registration_path %></li>
+      <li class="col-md-1"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+<%= link_to "login", new_user_session_path %></li>
+    </ul>
+  </header>
 
 	<div class="row">
 		<h1 class="text-center"><small>welcome to</small><span class="glyphicon glyphicon-book" aria-hidden="true"></span>Bookers !!</h1>
@@ -21,6 +21,4 @@ login</li>
 		<div class="row"><a class="col-md-4 col-md-offset-4 btn btn-default" href="#" role="button">Log in</a></div>
 		<div class="row"><a class="col-md-4 col-md-offset-4 btn btn-default" href="#" role="button">Sign up</a></div>
 	</div>
-
-
 </div>
