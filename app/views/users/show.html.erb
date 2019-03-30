@@ -1,2 +1,98 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Bookers</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="active">
+        <%= link_to root_path do %>
+          <span class="glyphicon glyphicon-home" aria-hidden="true"></span>  Home
+        <% end %>
+      </li>
+      <li>
+        <%= link_to home_about_path do %>
+          <span class="glyphicon glyphicon-link" aria-hidden="true"></span>  About
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_user_registration_path do %>
+          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>  sign up
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_user_session_path do %>
+          <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  login
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- User info start -->
+
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-4">
+	    	<div class="row">
+	    		<h2>User info</h2>
+	     		<div class="row">
+		     		<p class="col-md-5">name</p>
+		     		<p class="col-md-7">jiro</p>
+		     	</div>
+		     	<div class="row">
+		     		<p class="col-md-5">introduction</p>
+		     		<p class="col-md-7">text text</p>
+		     	</div>
+	    	</div>
+
+		    <div class="row">
+		    	<h2>New book</h2>
+		    	<form>
+			     	<div class="row">
+						<p>Title</p>
+						<input type="text" name="title">
+					</div>
+
+					<div class="row">
+				     	<p>Opinion</p>
+						<input type="text" name="title">
+					</div>
+					<div class="row">
+			    		<input type="submit" value="Create Book">
+					</div>
+				</form>
+		    </div>
+		</div>
+
+<!-- User info end -->
+
+		<div class="col-md-8">
+			<div class="row">
+			  	<h2>Books</h2>
+			</div>
+			<div class="row">
+				<p class="col-md-2">Image</p>
+				<p class="col-md-3">Title</p>
+				<p class="col-md-7">Opinion</p>
+			</div>
+
+			<div class="row">
+				<p class="col-md-2">Image1</p>
+				<p class="col-md-3">Title2</p>
+				<p class="col-md-7">Opinion3</p>
+			</div>
+
+			<div class="row">
+				<p class="col-md-2">Image1</p>
+				<p class="col-md-3">Title2</p>
+				<p class="col-md-7">Opinion3</p>
+			</div>
+
+
+		</div>
+
+	</div>
+</div>
+
+
