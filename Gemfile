@@ -39,6 +39,11 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 
+# image
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+
+# add ログイン機能
 gem 'devise'
 
 group :development, :test do
