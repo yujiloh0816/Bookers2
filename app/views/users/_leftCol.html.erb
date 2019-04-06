@@ -3,7 +3,7 @@
 	    <h2>User info</h2>
 		<div class="row">
 			<label class="col-md-5 border-dark">name</label>
-			<p class="col-md-7"><%= @user.name %></p>
+			<p class="col-md-7"><%= current_user.name %></p>
 		</div>
 		<div class="row">
 			<label class="col-md-5">introduction</label>
@@ -18,23 +18,24 @@
 
 	<div class="row">
     	<h2>New book</h2>
-	   	<form>
+	   	<%= form_for(@book) do |f| %>
+
 	     	<div class="row">
 				<label for="title">Title</label>
 			</div>
 			<div class="row">
-				<input type="text" name="title" class="col-md-10">
+				<%= f.text_field :title, class: "col-md-10" %>
 			</div>
 
 			<div class="row">
 		     	<label for="opinion" class="">Opinion</label>
 		    </div>
 		    <div class="row">
-				<textarea type="text" name="opinion" class="col-md-10 mb-4"></textarea>
+				<%= f.text_area :opinion, class: "col-md-10 mb-4" %>
 			</div>
 			<div class="row">
 				<input type="submit" value="Create Book" class="btn btn-default col-md-10">
 			</div>
-		</form>
+		<% end %>
 	</div>
 </div>

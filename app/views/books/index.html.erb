@@ -2,35 +2,29 @@
 
 <div class="container">
 	<div class="row">
-
 <!-- User info start -->
 		<%= render 'users/leftCol' %>
 <!-- User info end -->
 
-<!-- [start] User一覧 -->
+<!-- [start] Books 一覧 -->
 		<div class="col-md-8">
 			<div class="row">
-			  	<h2>Users</h2>
+			  	<h2>Books</h2>
 			</div>
 			<div class="row">
-				<p class="col-md-2">Image</p>
-				<p class="col-md-3">name</p>
+				<label class="col-md-2">Image</label>
+				<label class="col-md-3">Title</label>
+				<label class="col-md-7">Opinion</label>
 			</div>
 
-			<% @users.each do |user| %>
+			<% @books.each do |book| %>
 				<div class="row">
 					<p class="col-md-2">Image1</p>
-					<p class="col-md-3"><%= user.name %></p>
-					<p class="col-md-7"><%= link_to "show", user_path(user.id) %></p>
+					<p class="col-md-3"><%= book.title %></p>
+					<p class="col-md-7"><%= book.opinion %></p>
 				</div>
 			<% end %>
-
-
-<!-- [end] User一覧 -->
-
-		</div>
+<!-- [end] Books 一覧 -->
 
 	</div>
 </div>
-
-
