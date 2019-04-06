@@ -1,13 +1,18 @@
 <div class="col-md-4">
 	<div class="row">
 	    <h2>User info</h2>
+
+		<div class="row">
+			<%= attachment_image_tag current_user, :my_image, class: "col-md-5 img-circle pull-left", fallback: "no_image.jpg" %>
+		</div>
+
 		<div class="row">
 			<label class="col-md-5 border-dark">name</label>
 			<p class="col-md-7"><%= current_user.name %></p>
 		</div>
 		<div class="row">
 			<label class="col-md-5">introduction</label>
-			<p class="col-md-7">text text</p>
+			<p class="col-md-7"><%= current_user.introduction %></p>
 		</div>
 		<div class="row">
 			<%= link_to edit_user_path(current_user.id), class: "btn btn-default col-md-10" do %>
