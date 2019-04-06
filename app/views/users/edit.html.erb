@@ -5,11 +5,11 @@
 
 <%= form_for(@user) do |f| %>
 
-	<%= f.text_field :name %>
+	<%= f.text_field :name, class: "name" %>
 
-	<%= f.attachment_field :my_image %>
+	<%= f.attachment_field :my_image, class: "user_image" %>
 
-	<%= f.text_area :introduction %>
+	<%= f.text_area :introduction, class: "introduction" %>
 
 	<%= f.submit "Update User" %>
 

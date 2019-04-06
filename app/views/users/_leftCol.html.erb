@@ -15,7 +15,7 @@
 			<p class="col-md-7"><%= current_user.introduction %></p>
 		</div>
 		<div class="row">
-			<%= link_to edit_user_path(current_user.id), class: "btn btn-default col-md-10" do %>
+			<%= link_to edit_user_path(current_user.id), class: "btn btn-default col-md-10 edit_user_#{id}" do %>
 				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 			<% end %>
 	  	</div>
@@ -29,14 +29,14 @@
 				<label for="title">Title</label>
 			</div>
 			<div class="row">
-				<%= f.text_field :title, class: "col-md-10" %>
+				<%= f.text_field :title, class: "col-md-10 book_title" %>
 			</div>
 
 			<div class="row">
 		     	<label for="opinion" class="">Opinion</label>
 		    </div>
 		    <div class="row">
-				<%= f.text_area :opinion, class: "col-md-10 mb-4" %>
+				<%= f.text_area :opinion, class: "col-md-10 mb-4 book_body" %>
 			</div>
 			<div class="row">
 				<input type="submit" value="Create Book" class="btn btn-default col-md-10">
