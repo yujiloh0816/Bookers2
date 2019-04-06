@@ -16,18 +16,13 @@
 				<label class="col-md-7">Opinion</label>
 			</div>
 
+			<% @books.each do |book| %>
 			<div class="row">
 				<p class="col-md-2">Image1</p>
-				<p class="col-md-3">Title2</p>
-				<p class="col-md-7">Opinion3</p>
+				<p class="col-md-3"><%= book.title %></p>
+				<p class="col-md-7"><%= book.opinion %></p>
 			</div>
-
-			<div class="row">
-				<p class="col-md-2">Image1</p>
-				<p class="col-md-3">Title2</p>
-				<p class="col-md-7">Opinion3</p>
-			</div>
-
+			<% end %>
 
 		</div>
 
