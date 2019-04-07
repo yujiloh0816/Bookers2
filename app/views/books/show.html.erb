@@ -5,5 +5,22 @@
 <!-- User info start -->
 		<%= render 'users/leftCol', users: @user %>
 <!-- User info end -->
+
+		<div class="col-md-8">
+			<div class="row">
+			  	<h2>Book detail</h2>
+			</div>
+			<div class="row">
+				<label class="col-md-2">Image</label>
+				<label class="col-md-3">Title</label>
+				<label class="col-md-7">Opinion</label>
+			</div>
+				<%= @book_detail.title %>
+				<%= @book_detail.opinion %>
+				<%= link_to "edit", edit_book_path(@book_detail) %>
+				<%= link_to "destroy", book_path(@book_detail), method: :delete %>
+			</div>
+
+
 	</div>
 </div>
