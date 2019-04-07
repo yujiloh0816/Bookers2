@@ -53,3 +53,13 @@
     </ul>
   </div>
 </nav>
+
+<div class="container">
+      <div class="row">
+        <% if flash[:notice] %>
+          <h3><%= flash[:notice] %></h3>
+        <% end %>
+      </div>
+</div>
+
+

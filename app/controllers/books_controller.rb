@@ -9,19 +9,31 @@ class BooksController < ApplicationController
   def create
   	book = Book.new(book_params)
     book.user_id = current_user.id
-  	book.save
-  	redirect_to '/books'
-
+  	if book.save
+  	 redirect_to '/books' , notice: "Book was successfully created."
+    else
+      flash[:notice] = "ERROR Book was not created."
+      redirect_back(fallback_location: books_path)
+    end
   end
 
   def edit
-    @book_edit = Book.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def update
-    book = Book.find(params[:id])
-    book.update(book_params)
-    redirect_to '/books'
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+        redirect_to '/books', notice: "Book was successfully updated."
+    else
+
+        # redirect_back(fallback_location: books_path)
+        flash.now[:notice] = "ERROR Book was not updated."
+        render :edit
+        # renderの場合はErrorが起こる。
+        # render と redirect_to の違いを理解する必要がある。
+
+    end
   end
 
   def show
