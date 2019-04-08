@@ -15,8 +15,14 @@
 			<p class="col-md-7"><%= current_user.introduction %></p>
 		</div>
 		<div class="row">
-			<%= link_to edit_user_path(current_user.id), class: "btn btn-default col-md-10 edit_user_#{:id}" do %>
-				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+			<% if current_user.id == user.id %>
+				<%= link_to edit_user_path(current_user.id), class: "btn btn-default col-md-10 edit_user_#{:id}" do %>
+					<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+				<% end %>
+			<% else %>
+				<%= link_to user_path(current_user.id), class: "btn btn-default col-md-10 edit_user_#{:id}" do %>
+					<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+					<% end %>
 			<% end %>
 	  	</div>
 	</div>

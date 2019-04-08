@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="row">
 <!-- User info start -->
-		<%= render 'users/leftCol', users: @user %>
+		<%= render 'users/leftCol', users: @user, user: @user %>
 <!-- User info end -->
 
 		<div class="col-md-8">
@@ -19,7 +19,7 @@
 			<% @books.each do |book| %>
 			<div class="row">
 				<p class="col-md-2">Image1</p>
-				<p class="col-md-3"><%= book.title %></p>
+				<%= link_to book.title, book_path(book.id), class: "book_#{book.id} col-md-3" %>
 				<p class="col-md-7"><%= book.opinion %></p>
 			</div>
 			<% end %>

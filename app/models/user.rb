@@ -6,4 +6,8 @@ class User < ApplicationRecord
   attachment :my_image
   has_many :books
 
+  validates :name, length: { in: 2..20}, presence: true
+  validates :introduction, length: { maximum: 50 }
+
+
 end

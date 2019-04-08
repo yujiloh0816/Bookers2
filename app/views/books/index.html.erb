@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="row">
 <!-- User info start -->
-		<%= render 'users/leftCol' %>
+		<%= render 'users/leftCol', user: current_user %>
 <!-- User info end -->
 
 <!-- [start] Books 一覧 -->
@@ -19,11 +19,11 @@
 
 			<% @books.each do |book| %>
 				<div class="row">
-					<%= link_to user_path(book.user.id), class: "user_#{:id}" do %>
+					<%= link_to user_path(book.user.id), class: "user_#{book.user.id}" do %>
 						<%= attachment_image_tag book.user, :my_image, class: "col-md-2 img-circle pull-left", fallback: "no_image.jpg" %>
 					<% end %>
 					<p class="col-md-3">
-						<%= link_to book.title ,book_path(book) %>
+						<%= link_to book.title ,book_path(book), class: "book_#{book.id}" %>
 					</p>
 					<p class="col-md-7"><%= book.opinion %></p>
 				</div>

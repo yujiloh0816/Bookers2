@@ -4,7 +4,7 @@
 	<div class="row">
 
 <!-- User info start -->
-		<%= render 'users/leftCol' %>
+		<%= render 'users/leftCol',user:current_user %>
 <!-- User info end -->
 
 <!-- [start] User一覧 -->
@@ -21,7 +21,7 @@
 				<div class="row">
 					<%= attachment_image_tag user, :my_image, class: "col-md-2 img-circle pull-left", fallback: "no_image.jpg" %>
 					<p class="col-md-3"><%= user.name %></p>
-					<p class="col-md-7"><%= link_to "show", user_path(user.id) %></p>
+					<p class="col-md-7"><%= link_to "show", user_path(user.id), class: "user_#{user.id}" %></p>
 				</div>
 			<% end %>
 
