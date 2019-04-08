@@ -3,26 +3,20 @@
 	    <h2>User info</h2>
 
 		<div class="row">
-			<%= attachment_image_tag current_user, :my_image, class: "col-md-5 img-circle pull-left", fallback: "no_image.jpg" %>
+			<%= attachment_image_tag @user, :my_image, class: "col-md-5 img-circle pull-left", fallback: "no_image.jpg" %>
 		</div>
 
 		<div class="row">
 			<label class="col-md-5 border-dark">name</label>
-			<p class="col-md-7"><%= current_user.name %></p>
+			<p class="col-md-7"><%= @user.name %></p>
 		</div>
 		<div class="row">
 			<label class="col-md-5">introduction</label>
-			<p class="col-md-7"><%= current_user.introduction %></p>
+			<p class="col-md-7"><%= @user.introduction %></p>
 		</div>
 		<div class="row">
-			<% if current_user.id == user.id %>
-				<%= link_to edit_user_path(current_user.id), class: "btn btn-default col-md-10 edit_user_#{:id}" do %>
-					<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-				<% end %>
-			<% else %>
-				<%= link_to user_path(current_user.id), class: "btn btn-default col-md-10 edit_user_#{:id}" do %>
-					<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-					<% end %>
+			<%= link_to edit_user_path(@user.id), class: "btn btn-default col-md-10 edit_user_#{@user.id}" do %>
+				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 			<% end %>
 	  	</div>
 	</div>
@@ -51,3 +45,5 @@
 		<% end %>
 	</div>
 </div>
+
+

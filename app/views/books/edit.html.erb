@@ -1,15 +1,27 @@
 <%= render 'layouts/nav' %>
 
-<h1>Editing Book</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+		<h1 class="row">Editing Book</h1>
+		<%= form_for(@book) do |f| %>
+			<%= render 'layouts/error_messages', model: f.object %>
+			<%= f.label :title, "Title" %>
+			<div class="row">
+				<%= f.text_field :title, class: "book_title col-md-12" %>
+			</div>
+			<%= f.label :opinion, "Opinion" %>
+			<div class="row">
+				<%= f.text_area :opinion, class: "book_body col-md-12" %>
+			</div>
 
-<%= form_for(@book) do |f| %>
-	<%= render 'layouts/error_messages', model: f.object %>
-	<%= f.text_field :title %>
+			<div class="row">
+				<%= f.submit "Update Book", class: "btn btn-primary col-md-12" %>
+			</div>
+		<% end %>
 
-	<%= f.text_area :opinion %>
-
-	<%= f.submit "Update Book" %>
-
-<% end %>
-
-<p>Find me in app/views/books/edit.html.erb</p>
+		<%= link_to "Show", book_path(@book.id), class: "book_#{@book.id}" %> |
+		<%= link_to "Back", books_path, class: "books" %>
+		</div>
+	</div>
+</div>

@@ -6,26 +6,33 @@
 		<%= render 'users/leftCol', users: @user, user: @book_detail.user %>
 <!-- User info end -->
 
-		<div class="col-md-8">
-			<div class="row">
-			  	<h2>Book detail</h2>
-			</div>
-			<div class="row">
-				<label class="col-md-2">Image</label>
-				<label class="col-md-3">Title</label>
-				<label class="col-md-7">Opinion</label>
-			</div class="row">
-				<%= @book_detail.title %>
-				<%= @book_detail.opinion %>
+
+<div class="col-md-8">
+	<table class="table">
+		<h2>Book detail</h2>
+		<thead>
+			<tr>
+				<th class="col-md-3"></th>
+				<th class="col-md-3">Title</th>
+				<th class="col-md-4">Opinion</th>
+				<th class="col-md-1"></th>
+				<th class="col-md-1"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="col-md-3">
+					<%= attachment_image_tag @book_detail.user, :my_image,  :fill, 50, 50, class: "img-circle", fallback: "no_image.jpg", size: "50x50" %>
+				</td>
+				<td class="col-md-3"><%= link_to @book_detail.title, book_path(@book_detail.id), class: "book_#{@book_detail.id}" %></td>
+				<td class="col-md-4"><%= @book_detail.opinion %></td>
 				<% if current_user.id == @book_detail.user.id %>
-					<%= link_to "edit", edit_book_path(@book_detail), class: "edit_book_#{@book_detail.id}" %>
-					<%= link_to "destroy", book_path(@book_detail), method: :delete, class: "destroy_book_#{@book_detail.id}" %>
+					<td class="col-md-1"><%= link_to "edit", edit_book_path(@book_detail), class: "edit_book_#{@book_detail.id} btn btn-success" %></td>
+					<td class="col-md-1"><%= link_to "destroy", book_path(@book_detail), method: :delete, class: "destroy_book_#{@book_detail.id} btn btn-danger" %></td>
 				<% end %>
-			</div>
-			<div class="row">
-				<%= link_to @book_detail.user.name, user_path(@book_detail.user.id), class: "user_#{@book_detail.user.id}" %>
-			</div>
+			</tr>
+		</tbody>
+	</table>
+	<p class="text-left"><%=link_to @book_detail.user.name, user_path(@book_detail.user), class: "user_#{@book_detail.user.id}" %></p>
 
-
-	</div>
 </div>

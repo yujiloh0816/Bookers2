@@ -1,10 +1,13 @@
 class BooksController < ApplicationController
     before_action :authenticate_user!
-    before_action :correct_user,   only: [:edit, :update]
+    # authenticate_user!メソッド内にどのコントロラーからでも呼び出せるようにしている。gem deviseが生成
+    before_action :correct_user, only: [:edit, :update]
+    # 原則　同コントロラー内のメソッドを読み込み
 
   def index
   	@books = Book.all
   	@book = Book.new
+    @user = current_user #_leftCol.html用
   end
 
   def create
@@ -35,6 +38,7 @@ class BooksController < ApplicationController
   def show
   	@book = Book.new
     @book_detail = Book.find(params[:id])
+    @user = @book_detail.user #_leftCol.html用
   end
 
   def destroy
@@ -44,11 +48,12 @@ class BooksController < ApplicationController
   end
 
   def correct_user
-    # @user = User.find(params[:id])
-    # @user = Book.find(params[:id].user_id)
-    # @user = Book.find(params[:id]).user_id
-    @user = Book.find(params[:id]).user
-    if @user.id != current_user.id
+    # NG      @user = User.find(params[:id])
+    # NG      @user = Book.find(params[:id].user_id)
+    # NG      @user = Book.find(params[:id]).user_id
+    # No bad  @user = Book.find(params[:id]).user
+    @book = Book.find(params[:id])
+    if @book.user.id != current_user.id
       redirect_to books_path
     end
   end

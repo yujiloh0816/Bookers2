@@ -7,27 +7,33 @@
 <!-- User info end -->
 
 <!-- [start] Books 一覧 -->
-		<div class="col-md-8">
-			<div class="row">
-			  	<h2>Books</h2>
-			</div>
-			<div class="row">
-				<label class="col-md-2">Image</label>
-				<label class="col-md-3">Title</label>
-				<label class="col-md-7">Opinion</label>
-			</div>
 
+<div class="col-md-8">
+	<table class="table">
+		<h2>Books</h2>
+		<thead>
+			<tr>
+				<th class="col-md-3"></th>
+				<th class="col-md-4">Title</th>
+				<th class="col-md-5">Opinion</th>
+			</tr>
+		</thead>
+		<tbody>
 			<% @books.each do |book| %>
-				<div class="row">
-					<%= link_to user_path(book.user.id), class: "user_#{book.user.id}" do %>
-						<%= attachment_image_tag book.user, :my_image, class: "col-md-2 img-circle pull-left", fallback: "no_image.jpg" %>
-					<% end %>
-					<p class="col-md-3">
-						<%= link_to book.title ,book_path(book), class: "book_#{book.id}" %>
-					</p>
-					<p class="col-md-7"><%= book.opinion %></p>
-				</div>
+				<tr>
+					<td class="col-md-3">
+						<%= link_to user_path(book.user.id), class: "user_#{book.user.id}" do %>
+							<%= attachment_image_tag book.user, :my_image,  :fill, 50, 50, class: "img-circle", fallback: "no_image.jpg", size: "50x50" %>
+						<% end %>
+					</td>
+					<td class="col-md-4"><%= link_to book.title, book_path(book.id), class: "book_#{book.id}" %></td>
+					<td class="col-md-5"><%= book.opinion %></td>
+				</tr>
 			<% end %>
+
+		</tbody>
+	</table>
+</div>
 <!-- [end] Books 一覧 -->
 
 	</div>
