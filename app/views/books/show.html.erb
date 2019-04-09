@@ -22,7 +22,7 @@
 		<tbody>
 			<tr>
 				<td class="col-md-3">
-					<%= attachment_image_tag @book_detail.user, :my_image,  :fill, 50, 50, class: "img-circle", fallback: "no_image.jpg", size: "50x50" %>
+					<%= attachment_image_tag @book_detail.user, :my_image,  :fill, 50, 50, class: "img-circle ", fallback: "no_image.jpg", size: "50x50" %>
 				</td>
 				<td class="col-md-3"><%= link_to @book_detail.title, book_path(@book_detail.id), class: "book_#{@book_detail.id}" %></td>
 				<td class="col-md-4"><%= @book_detail.opinion %></td>
